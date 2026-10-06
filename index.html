@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datenschutzhinweise – MTKing's Takeout Manager</title>
+<style>
+  :root { color-scheme: light dark; --text: #1b1f24; --muted: #57606a; --bg: #ffffff; --line: #d0d7de; }
+  @media (prefers-color-scheme: dark) { :root { --text: #e6edf3; --muted: #9da7b3; --bg: #0d1117; --line: #30363d; } }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 "Segoe UI", system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  h2 { font-size: 1.15rem; margin: 28px 0 8px; border-top: 1px solid var(--line); padding-top: 16px; }
+  .stand { color: var(--muted); margin: 0 0 16px; }
+  ul { padding-left: 1.2em; }
+  li { margin: 6px 0; }
+  a { color: inherit; }
+  .web { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 12px; color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+<h1>Datenschutzhinweise – MTKing's Takeout Manager</h1>
+<p class="stand">Stand 06.10.2026, gilt ab Version 1.13.0</p>
+<p>Anbieter und Verantwortlicher: siehe <a href="#kontakt">Abschnitt 6</a>.</p>
+
+<h2>1. Kurzfassung</h2>
+<p>Die App arbeitet ausschließlich auf deinem PC. Sie lädt keine Fotos, Videos, Dateinamen, Ordnerpfade, Suchbegriffe oder
+Suchergebnisse hoch. Sie hat kein Benutzerkonto, keine Werbung, keine Nutzungsanalyse und baut selbst keine
+Internetverbindung auf. Der Anbieter erhält keine Daten aus der App.</p>
+
+<h2>2. Was die App verarbeitet – und wo es bleibt</h2>
+<ul>
+<li><strong>Medien und Archive:</strong> Die App liest nur Ordner und ZIP-Archive, die du auswählst, und zeigt sie an. Kopieren,
+Verschieben, Umbenennen oder in den Papierkorb legen geschieht nur nach deiner ausdrücklichen Aktion und Bestätigung.
+ZIP-Archive werden nur gelesen.</li>
+<li><strong>Begleitdaten aus Google Takeout</strong> (JSON, z. B. Aufnahmedatum; je nach Export auch Ort oder Beschreibungen) werden lokal
+gelesen, um Fotos einzuordnen.</li>
+<li><strong>KI-Bildsuche</strong> (optional, erst nach Klick auf „Suchen“): Ein mitgeliefertes KI-Modell rechnet jedes Foto der gewählten
+Ansicht und den Suchbegriff lokal auf diesem PC in Zahlenvektoren um und vergleicht sie – auf der Grafikkarte
+(empfohlen) oder, nur wenn du es ausdrücklich wählst, im langsameren CPU-Modus auf dem Prozessor. Der Suchindex enthält je
+Foto den vollständigen Dateipfad (bei ZIP: Archivpfad und Eintrag), Dateigröße, Änderungszeit und einen Merkmalsvektor
+(768 Zahlen). Der Merkmalsvektor beschreibt Eigenschaften des Bildinhalts und ist keine gespeicherte Bildkopie. Zusammen mit
+dem Dateipfad sollte er wie persönliche Daten behandelt werden. Der Index liegt in dem Ordner, den du beim ersten Einsatz wählst
+(„KI-Einstellungen …“ in der KI-Leiste).
+Suchbegriffe und Trefferlisten werden nicht gespeichert.</li>
+<li>Im Benutzerordner unter „AppData\Local\TakeoutArchivManager“ liegen: <strong>Einstellungen</strong> (Hinweistöne, Speicherort des
+KI-Index, Rechenweg der KI), ein <strong>Fehlerprotokoll</strong> (Fehlermeldungen, können Dateipfade enthalten) und ein <strong>Prüfsummen-Zwischenspeicher</strong> der
+Duplikatsuche (je Datei eine Prüfsumme des Inhalts; Pfad, Größe und Änderungszeit nur als daraus berechneter
+Schlüssel, nicht im Klartext) sowie ein <strong>Einlese-Zwischenspeicher</strong> (je bereits gelesener Datei Aufnahmedatum bzw.
+Zeitraum aus Takeout-JSON und Foto-/Video-Metadaten; Pfad, Größe und Änderungszeit ebenfalls nur als berechneter
+Schlüssel). Gibt es diesen Ordner bereits, etwa von einer früheren Fassung ohne Microsoft Store,
+verwendet auch die Store-Fassung ihn weiter. Legt die Store-Fassung Ordner oder Dateien dort neu an, kann Windows sie
+stattdessen in den Datenordner des App-Pakets umleiten (auf dem Laufwerk, auf dem die App installiert ist).</li>
+<li><strong>Videos aus ZIP-Archiven:</strong> Zum Abspielen kopiert die App das Video vorübergehend in den Temp-Ordner von Windows
+(Unterordner „TakeoutArchivManager-Vorschau“).</li>
+<li><strong>Prüfberichte</strong> und Berichte der Duplikat- und Quarantäne-Werkzeuge (mit Datei- und Ordnernamen) legt die App unter
+„Dokumente\Takeout Archiv Manager“ ab, Quarantäne-Ordner an den angezeigten Orten. Beides entsteht nur, wenn du diese
+Werkzeuge verwendest.</li>
+<li><strong>Schutz:</strong> Alle genannten Daten bleiben auf deinen Laufwerken. Die App verschlüsselt sie nicht zusätzlich; es gelten die
+Zugriffsrechte des jeweiligen Ordners. Je nach Laufwerk und Windows-Einstellung können auch andere Benutzerkonten
+dieses PCs den Indexordner lesen – wähle bei Bedarf einen Ordner, auf den nur du zugreifen kannst.</li>
+</ul>
+
+<h2>3. Weitergabe an Dritte</h2>
+<p>Die App überträgt deine Medien, Dateipfade, Suchbegriffe und Suchergebnisse nicht an den Anbieter oder einen
+Cloud-KI-Dienst. Für Laufzeitkomponenten, Windows und den Microsoft Store gelten die folgenden Besonderheiten.</p>
+<ul>
+<li>ONNX Runtime (KI-Laufzeit) enthält eine Telemetriefunktion über die Windows-Ereignisverfolgung. Das KI-Modul schaltet sie
+beim Start ab. Ergebnis einer Prüfung des Quelltexts von ONNX Runtime 1.24.4: Beim Initialisieren wird einmalig ein
+Startereignis (Laufzeitversion und ähnliche technische Angaben, keine Bilder, Pfade oder Suchbegriffe) an die
+Windows-Ereignisverfolgung übergeben, bevor das Abschalten wirkt; weitere Telemetrieereignisse werden danach laut Quelltext
+nicht mehr ausgelöst. Ein Mitschnitt der tatsächlich erzeugten Ereignisse wurde nicht durchgeführt. Ob und wie Windows solche
+Ereignisse weiterverarbeitet oder übermittelt, kann die App nicht beeinflussen; das wurde nicht geprüft.</li>
+<li>Der Grafiktreiber legt beim Verwenden der Grafikkarte eigene Zwischenspeicher (Shader-Cache) an.</li>
+<li>Installation, Updates und ggf. Absturzberichte über den Microsoft Store unterliegen den Datenschutzbestimmungen von
+Microsoft; die App selbst überträgt dabei nichts.</li>
+</ul>
+
+<h2>4. Speicherdauer und Löschen</h2>
+<p>Der KI-Index bleibt, bis du ihn löschst: Ordner über „KI-Einstellungen …“ anzeigen und die .kix-Dateien oder den Ordner
+löschen. Das Fehlerprotokoll ist auf etwa 4 MB begrenzt (ältere Einträge werden ersetzt), der Prüfsummen-Zwischenspeicher
+auf 200 000 Einträge, der Einlese-Zwischenspeicher auf 500 000 Einträge (jeweils werden die am längsten unbenutzten
+entfernt). Vorübergehende Videokopien löscht die App beim
+nächsten Video und beim Beenden; nach einem Absturz können sie im Temp-Ordner liegen bleiben. Berichte bleiben, bis du
+sie löschst. Beim Deinstallieren entfernt Windows das Programm und (Store-Fassung) seinen Paket-Datenordner mit den
+dorthin umgeleiteten Dateien. Bestehen bleiben: ein bereits vorhandener Ordner „AppData\Local\TakeoutArchivManager“ mit
+Einstellungen, Fehlerprotokoll, Prüfsummen und Einlese-Zwischenspeicher (kannst du bei Bedarf selbst löschen), der Ordner
+„Dokumente\Takeout Archiv Manager“, der von dir gewählte Indexordner und deine Medien. Sie werden beim Deinstallieren
+nicht verändert.</p>
+
+<h2>5. Deine Kontrolle</h2>
+<p>Die KI-Suche ist freiwillig. Ohne Klick auf „Suchen“ wird kein Foto für die KI eingelesen. Die übrige App funktioniert
+ohne KI-Suche vollständig. Alle oben genannten Dateien liegen in normalen Ordnern deines PCs; du kannst sie mit dem
+Explorer ansehen, kopieren oder löschen.</p>
+
+<h2 id="kontakt">6. Kontakt</h2>
+<p>Anbieter der App und Verantwortlicher für die Verarbeitung von Support-E-Mails: Matthias Baltz, Carl-von-Ossietzky-Str. 28,
+18507 Grimmen, Deutschland. Die App wird unter dem Namen „MTKing“ als privates, kostenloses Projekt angeboten. Kontakt per
+E-Mail: <a href="mailto:mtking-support@gmx.de">mtking-support@gmx.de</a></p>
+<p>Wenn du eine Support-E-Mail sendest, werden deine E-Mail-Adresse, der Nachrichteninhalt und gegebenenfalls Anhänge zur
+Bearbeitung deiner Anfrage verarbeitet. Die Nachrichten werden beim E-Mail-Dienst GMX gespeichert.</p>
+
+<h2>7. Änderungen</h2>
+<p>Diese Hinweise werden angepasst, wenn sich Funktionen ändern. Maßgeblich ist die Fassung zur jeweiligen App-Version.</p>
+
+<footer class="web">
+<p><strong>Zu dieser Webseite:</strong> Diese Seite wird über GitHub Pages (GitHub, Inc.) bereitgestellt. Beim Aufruf
+speichert GitHub nach eigenen Angaben die IP-Adresse zu Sicherheitszwecken; Einzelheiten in der
+<a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a>.
+Die Seite selbst verwendet keine Cookies, keine Zählpixel, keine Analysewerkzeuge und keine nachgeladenen Schriften oder Skripte.</p>
+</footer>
+</main>
+</body>
+</html>
