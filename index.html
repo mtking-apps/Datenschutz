@@ -1,8 +1,4 @@
 <!doctype html>
-<!-- Datenschutzhinweise für die öffentliche Datenschutz-URL (Partner Center). Inhaltsgleich mit
-     Services/RechtlicheTexte.cs (Datenschutz); nur der Fußbereich „Zu dieser Webseite“ ist zusätzlich.
-     Noch NICHT veröffentlicht; vorgesehen für GitHub Pages (Store/Datenschutz/GITHUB-PAGES.md).
-     Ohne Klarnamen und Wohnadresse; ob die Anbieterangaben rechtlich genügen, ist offen (ANBIETERANGABEN.md). -->
 <html lang="de">
 <head>
 <meta charset="utf-8">
@@ -25,7 +21,7 @@
 <body>
 <main>
 <h1>Datenschutzhinweise – MTKing's Takeout Manager</h1>
-<p class="stand">Stand 07.10.2026, gilt ab Version 1.14.2</p>
+<p class="stand">Stand 11.10.2026, gilt ab Version 1.17.0</p>
 
 <h2>1. Kurzfassung</h2>
 <p>Die App arbeitet ausschließlich auf deinem PC. Sie lädt keine Fotos, Videos, Dateinamen, Ordnerpfade, Suchbegriffe oder
@@ -40,6 +36,13 @@ Verschieben, Umbenennen oder in den Papierkorb legen geschieht nur nach deiner a
 ZIP-Archive werden nur gelesen.</li>
 <li><strong>Begleitdaten aus Google Takeout</strong> (JSON, z. B. Aufnahmedatum; je nach Export auch Ort oder Beschreibungen) werden lokal
 gelesen, um Fotos einzuordnen.</li>
+<li><strong>Kameraangaben:</strong> Für den Kamerafilter liest die App aus Fotos und Videos Hersteller und Modell der Kamera und – falls
+die Datei eine enthält – die Seriennummer des Kameragehäuses. Die Angaben werden nur lokal angezeigt und gefiltert.</li>
+<li><strong>Videowiedergabe und Video-Vorschaubilder:</strong> Videos spielt die Wiedergabe von Windows lokal ab; die App liefert keine
+eigene Decoderbibliothek mit. Welche Videoformate laufen, hängt von Windows ab. Vorschaubilder für Videos in Ordnern
+fragt die App bei Windows an; ob Windows dabei einen eigenen Zwischenspeicher für Vorschaubilder nutzt, bestimmt
+Windows. Für Videos in ZIP-Archiven zeigt die App kein Vorschaubild. In der App liegen Vorschaubilder nur im
+Arbeitsspeicher.</li>
 <li><strong>KI-Bildsuche</strong> (optional, erst nach Klick auf „Suchen“): Ein mitgeliefertes KI-Modell rechnet jedes Foto der gewählten
 Ansicht und den Suchbegriff lokal auf diesem PC in Zahlenvektoren um und vergleicht sie – auf der Grafikkarte
 (empfohlen) oder, nur wenn du es ausdrücklich wählst, im langsameren CPU-Modus auf dem Prozessor. Der Suchindex enthält je
@@ -49,15 +52,22 @@ dem Dateipfad sollte er wie persönliche Daten behandelt werden. Der Index liegt
 („KI-Einstellungen …“ in der KI-Leiste).
 Suchbegriffe und Trefferlisten werden nicht gespeichert.</li>
 <li>Im Benutzerordner unter „AppData\Local\TakeoutArchivManager“ liegen: <strong>Einstellungen</strong> (Hinweistöne, Speicherort des
-KI-Index, Rechenweg der KI), ein <strong>Fehlerprotokoll</strong> (Fehlermeldungen, können Dateipfade enthalten) und ein <strong>Prüfsummen-Zwischenspeicher</strong> der
+KI-Index, Rechenweg der KI, der Schalter „System-, Programm- und Spieleordner überspringen“ mit deinen eigenen
+Ausschlussordnern als vollständige Ordnerpfade, der von dir gewählte Ordner für vorübergehende Videodateien in der
+Datei „video-temp.json“), ein <strong>Fehlerprotokoll</strong> (Fehlermeldungen, können Dateipfade enthalten) und ein <strong>Prüfsummen-Zwischenspeicher</strong> der
 Duplikatsuche (je Datei eine Prüfsumme des Inhalts; Pfad, Größe und Änderungszeit nur als daraus berechneter
 Schlüssel, nicht im Klartext) sowie ein <strong>Einlese-Zwischenspeicher</strong> (je bereits gelesener Datei Aufnahmedatum bzw.
-Zeitraum aus Takeout-JSON und Foto-/Video-Metadaten; Pfad, Größe und Änderungszeit ebenfalls nur als berechneter
+Zeitraum aus Takeout-JSON und Foto-/Video-Metadaten sowie die Kameraangaben Hersteller, Modell und vorhandene
+Seriennummer im Klartext; Pfad, Größe und Änderungszeit ebenfalls nur als berechneter
 Schlüssel). Gibt es diesen Ordner bereits, etwa von einer früheren Fassung ohne Microsoft Store,
 verwendet auch die Store-Fassung ihn weiter. Legt die Store-Fassung Ordner oder Dateien dort neu an, kann Windows sie
 stattdessen in den Datenordner des App-Pakets umleiten (auf dem Laufwerk, auf dem die App installiert ist).</li>
-<li><strong>Videos aus ZIP-Archiven:</strong> Zum Abspielen kopiert die App das Video vorübergehend in den Temp-Ordner von Windows
-(Unterordner „TakeoutArchivManager-Vorschau“).</li>
+<li><strong>Videos aus ZIP-Archiven:</strong> Zum Abspielen kopiert die App nur das gewählte Video vorübergehend als Datei in den
+Unterordner „TakeoutArchivManager-Vorschau“. Hast du dafür einen Ordner gewählt („Speicherort für ZIP-Videos …“),
+liegt der Unterordner dort und gilt für alle Videos aus ZIP-Archiven. Ohne gewählten Ordner nutzt die App für Videos
+unter 500 MB den Temp-Ordner von Windows; Videos ab 500 MB kopiert sie erst, nachdem du einen Ordner gewählt und die
+Rückfrage bestätigt hast. Ist der gewählte Ordner nicht nutzbar, kopiert die App nicht an einen anderen Ort. Das
+ZIP-Archiv bleibt unverändert. Für Vorschaubilder wird nichts kopiert.</li>
 <li><strong>Prüfberichte</strong> und Berichte der Duplikat- und Quarantäne-Werkzeuge (mit Datei- und Ordnernamen) legt die App unter
 „Dokumente\Takeout Archiv Manager“ ab, Quarantäne-Ordner an den angezeigten Orten. Beides entsteht nur, wenn du diese
 Werkzeuge verwendest.</li>
@@ -87,8 +97,12 @@ dabei nicht.</li>
 <p>Der KI-Index bleibt, bis du ihn löschst: Ordner über „KI-Einstellungen …“ anzeigen und die .kix-Dateien oder den Ordner
 löschen. Das Fehlerprotokoll ist auf etwa 4 MB begrenzt (ältere Einträge werden ersetzt), der Prüfsummen-Zwischenspeicher
 auf 200 000 Einträge, der Einlese-Zwischenspeicher auf 500 000 Einträge (jeweils werden die am längsten unbenutzten
-entfernt). Vorübergehende Videokopien löscht die App beim
-nächsten Video und beim Beenden; nach einem Absturz können sie im Temp-Ordner liegen bleiben. Berichte bleiben, bis du
+entfernt). Die Kameraangaben im Einlese-Zwischenspeicher bleiben so lange wie der jeweilige Eintrag. Eigene
+Ausschlussordner und der gewählte Ordner für Videodateien bleiben gespeichert, bis du sie in der App änderst oder
+aufhebst oder die Dateien „einlese-ausschluesse.json“ bzw. „video-temp.json“ löschst. Vorübergehende Videokopien löscht die App nach der
+Wiedergabe, spätestens beim nächsten Video und beim Beenden; nach einem Absturz können sie im genannten Unterordner
+liegen bleiben und werden bei einer späteren Wiedergabe entfernt, wenn sie älter als ein Tag sind. Die App löscht dort
+nur Dateien, die sie selbst angelegt hat. Berichte bleiben, bis du
 sie löschst. Beim Deinstallieren entfernt Windows das Programm und (Store-Fassung) seinen Paket-Datenordner mit den
 dorthin umgeleiteten Dateien. Bestehen bleiben: ein bereits vorhandener Ordner „AppData\Local\TakeoutArchivManager“ mit
 Einstellungen, Fehlerprotokoll, Prüfsummen und Einlese-Zwischenspeicher (kannst du bei Bedarf selbst löschen), der Ordner
@@ -108,8 +122,6 @@ Bearbeitung deiner Anfrage verarbeitet. Die Nachrichten werden beim E-Mail-Diens
 <h2>7. Änderungen</h2>
 <p>Diese Hinweise werden angepasst, wenn sich Funktionen ändern. Maßgeblich ist die Fassung zur jeweiligen App-Version.</p>
 
-<!-- Nur für die Webseite (kein Abschnitt der App-Datenschutzhinweise): passt zur Bereitstellung über GitHub Pages.
-     Bei anderem Hosting anpassen. -->
 <footer class="web">
 <p><strong>Zu dieser Webseite:</strong> Diese Seite wird über GitHub Pages (GitHub, Inc.) bereitgestellt. Beim Aufruf
 speichert GitHub nach eigenen Angaben die IP-Adresse zu Sicherheitszwecken; Einzelheiten in der
