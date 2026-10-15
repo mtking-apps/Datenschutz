@@ -5,128 +5,300 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Datenschutzhinweise – MTKing's Takeout Manager</title>
 <style>
-  :root { color-scheme: light dark; --text: #1b1f24; --muted: #57606a; --bg: #ffffff; --line: #d0d7de; }
-  @media (prefers-color-scheme: dark) { :root { --text: #e6edf3; --muted: #9da7b3; --bg: #0d1117; --line: #30363d; } }
-  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 "Segoe UI", system-ui, sans-serif; }
-  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 48px; }
+  :root {
+    color-scheme: light dark;
+    --text: #1b1f24;
+    --muted: #57606a;
+    --bg: #ffffff;
+    --line: #d0d7de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: #e6edf3;
+      --muted: #9da7b3;
+      --bg: #0d1117;
+      --line: #30363d;
+    }
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 "Segoe UI", system-ui, sans-serif;
+  }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 16px 48px;
+    overflow-wrap: anywhere;
+  }
   h1 { font-size: 1.6rem; margin: 0 0 4px; }
-  h2 { font-size: 1.15rem; margin: 28px 0 8px; border-top: 1px solid var(--line); padding-top: 16px; }
+  h2 {
+    font-size: 1.15rem;
+    margin: 28px 0 8px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+  h3 { font-size: 1rem; margin: 20px 0 6px; }
   .stand { color: var(--muted); margin: 0 0 16px; }
   ul { padding-left: 1.2em; }
   li { margin: 6px 0; }
   a { color: inherit; }
-  .web { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 12px; color: var(--muted); font-size: 0.9rem; }
+  .web {
+    margin-top: 32px;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
 </style>
 </head>
 <body>
 <main>
 <h1>Datenschutzhinweise – MTKing's Takeout Manager</h1>
-<p class="stand">Stand 11.10.2026, gilt ab Version 1.17.0</p>
+<p class="stand">Stand: 15.10.2026<br>
+Beschreibt den Funktionsstand der Version 1.18.4 – Early Access Beta 1.0.</p>
 
 <h2>1. Kurzfassung</h2>
-<p>Die App arbeitet ausschließlich auf deinem PC. Sie lädt keine Fotos, Videos, Dateinamen, Ordnerpfade, Suchbegriffe oder
-Suchergebnisse hoch. Sie hat kein Benutzerkonto, keine Werbung, keine Nutzungsanalyse und baut selbst keine
-Internetverbindung auf. Nur wenn du in der Store-Fassung „Nach Updates suchen“ wählst, fragt sie über Windows beim
-Microsoft Store nach einer neuen Version. Der Anbieter erhält keine Daten aus der App.</p>
+<p>Die App arbeitet lokal auf deinem PC. Sie lädt keine Fotos, Videos,
+Dateinamen, Ordnerpfade, Suchbegriffe oder Suchergebnisse hoch. Sie hat
+kein Benutzerkonto, keine Werbung und keine Nutzungsanalyse. Sie baut
+selbst keine Internetverbindung auf.</p>
+<p>Wenn du in der Store-Fassung „Nach Updates suchen“ wählst, fragt sie
+über Windows beim Microsoft Store nach einer neuen Version. Der Anbieter
+erhält keine Daten aus der App.</p>
 
 <h2>2. Was die App verarbeitet – und wo es bleibt</h2>
+
+<h3>Medien, Ordner und Archive</h3>
+<p>Die App liest von dir ausgewählte Medienordner, Laufwerke und
+ZIP-Archive. Dazu können entpackte Archive, selbst angelegte Sammlungen
+oder heruntergeladene Exporte gehören, zum Beispiel Google Takeout.</p>
+<p>Kopieren, Verschieben, Umbenennen und Bereinigen erfolgen nur auf
+deine ausdrückliche Aktion mit den vorgesehenen Bestätigungen.
+ZIP-Archive werden nur gelesen und bleiben unverändert.</p>
+
+<h3>Schlagwörter und Bildinformationen</h3>
+<p>Auf deinen Wunsch schreibt die App Schlagwörter in Dateinamen
+und/oder Bildinformationen. Bei JPEG-Dateien können die Bildinformationen
+direkt geändert werden. Bei Kamera-RAW verwendet sie dafür eine
+XMP-Begleitdatei. Inhalte innerhalb eines ZIP-Archivs werden nicht
+verändert.</p>
+
+<h3>JSON-Begleitdateien</h3>
+<p>Manche Exporte enthalten zusätzliche Begleitdateien. Deren Aufbau
+und Namen unterscheiden sich je nach Dienst.</p>
+<p>Die App erkennt bestimmte JSON-Begleitdateien aus Google Takeout.
+Daraus wertet sie ausschließlich das Aufnahmedatum „photoTakenTime“
+aus. Beschreibungen, Orte, Personen und Alben werden nicht ausgewertet.
+Passende JSON-Dateien können zusammen mit dem Foto oder Video
+übertragen werden.</p>
+<p>Begleit- und Albumdaten anderer Dienste werden nicht ausgewertet
+oder zugeordnet.</p>
+
+<h3>Kameraangaben</h3>
+<p>Für den Kamerafilter liest die App aus Fotos und Videos Hersteller
+und Modell der Kamera sowie – falls vorhanden – die Seriennummer des
+Kameragehäuses. Die Angaben werden nur lokal verarbeitet, angezeigt
+und gefiltert.</p>
+
+<h3>Videowiedergabe und Video-Vorschaubilder</h3>
+<p>Videos werden lokal über die Wiedergabe von Windows abgespielt.
+Die App liefert keine eigene Decoderbibliothek mit. Welche Videoformate
+funktionieren, hängt von Windows ab.</p>
+<p>Vorschaubilder für Videos in Ordnern fragt die App bei Windows an.
+Ob Windows dabei einen eigenen Zwischenspeicher verwendet, bestimmt
+Windows. Für Videos in ZIP-Archiven zeigt die App kein Vorschaubild.
+Innerhalb der App liegen Vorschaubilder nur im Arbeitsspeicher.</p>
+
+<h3>KI-Bildsuche</h3>
+<p>Die KI-Bildsuche ist freiwillig und startet erst nach deiner
+Suchaktion. Ein mitgeliefertes KI-Modell verarbeitet Fotos der gewählten
+Ansicht und den Suchbegriff lokal auf deinem PC. Die Berechnung erfolgt
+auf der Grafikkarte oder, wenn du dies ausdrücklich auswählst, im
+langsameren CPU-Modus.</p>
+<p>Der Suchindex enthält je Foto:</p>
 <ul>
-<li><strong>Medien und Archive:</strong> Die App liest nur Ordner und ZIP-Archive, die du auswählst, und zeigt sie an. Kopieren,
-Verschieben, Umbenennen oder in den Papierkorb legen geschieht nur nach deiner ausdrücklichen Aktion und Bestätigung.
-ZIP-Archive werden nur gelesen.</li>
-<li><strong>Begleitdaten aus Google Takeout</strong> (JSON, z. B. Aufnahmedatum; je nach Export auch Ort oder Beschreibungen) werden lokal
-gelesen, um Fotos einzuordnen.</li>
-<li><strong>Kameraangaben:</strong> Für den Kamerafilter liest die App aus Fotos und Videos Hersteller und Modell der Kamera und – falls
-die Datei eine enthält – die Seriennummer des Kameragehäuses. Die Angaben werden nur lokal angezeigt und gefiltert.</li>
-<li><strong>Videowiedergabe und Video-Vorschaubilder:</strong> Videos spielt die Wiedergabe von Windows lokal ab; die App liefert keine
-eigene Decoderbibliothek mit. Welche Videoformate laufen, hängt von Windows ab. Vorschaubilder für Videos in Ordnern
-fragt die App bei Windows an; ob Windows dabei einen eigenen Zwischenspeicher für Vorschaubilder nutzt, bestimmt
-Windows. Für Videos in ZIP-Archiven zeigt die App kein Vorschaubild. In der App liegen Vorschaubilder nur im
-Arbeitsspeicher.</li>
-<li><strong>KI-Bildsuche</strong> (optional, erst nach Klick auf „Suchen“): Ein mitgeliefertes KI-Modell rechnet jedes Foto der gewählten
-Ansicht und den Suchbegriff lokal auf diesem PC in Zahlenvektoren um und vergleicht sie – auf der Grafikkarte
-(empfohlen) oder, nur wenn du es ausdrücklich wählst, im langsameren CPU-Modus auf dem Prozessor. Der Suchindex enthält je
-Foto den vollständigen Dateipfad (bei ZIP: Archivpfad und Eintrag), Dateigröße, Änderungszeit und einen Merkmalsvektor
-(768 Zahlen). Der Merkmalsvektor beschreibt Eigenschaften des Bildinhalts und ist keine gespeicherte Bildkopie. Zusammen mit
-dem Dateipfad sollte er wie persönliche Daten behandelt werden. Der Index liegt in dem Ordner, den du beim ersten Einsatz wählst
-(„KI-Einstellungen …“ in der KI-Leiste).
-Suchbegriffe und Trefferlisten werden nicht gespeichert.</li>
-<li>Im Benutzerordner unter „AppData\Local\TakeoutArchivManager“ liegen: <strong>Einstellungen</strong> (Hinweistöne, Speicherort des
-KI-Index, Rechenweg der KI, der Schalter „System-, Programm- und Spieleordner überspringen“ mit deinen eigenen
-Ausschlussordnern als vollständige Ordnerpfade, der von dir gewählte Ordner für vorübergehende Videodateien in der
-Datei „video-temp.json“), ein <strong>Fehlerprotokoll</strong> (Fehlermeldungen, können Dateipfade enthalten) und ein <strong>Prüfsummen-Zwischenspeicher</strong> der
-Duplikatsuche (je Datei eine Prüfsumme des Inhalts; Pfad, Größe und Änderungszeit nur als daraus berechneter
-Schlüssel, nicht im Klartext) sowie ein <strong>Einlese-Zwischenspeicher</strong> (je bereits gelesener Datei Aufnahmedatum bzw.
-Zeitraum aus Takeout-JSON und Foto-/Video-Metadaten sowie die Kameraangaben Hersteller, Modell und vorhandene
-Seriennummer im Klartext; Pfad, Größe und Änderungszeit ebenfalls nur als berechneter
-Schlüssel). Gibt es diesen Ordner bereits, etwa von einer früheren Fassung ohne Microsoft Store,
-verwendet auch die Store-Fassung ihn weiter. Legt die Store-Fassung Ordner oder Dateien dort neu an, kann Windows sie
-stattdessen in den Datenordner des App-Pakets umleiten (auf dem Laufwerk, auf dem die App installiert ist).</li>
-<li><strong>Videos aus ZIP-Archiven:</strong> Zum Abspielen kopiert die App nur das gewählte Video vorübergehend als Datei in den
-Unterordner „TakeoutArchivManager-Vorschau“. Hast du dafür einen Ordner gewählt („Speicherort für ZIP-Videos …“),
-liegt der Unterordner dort und gilt für alle Videos aus ZIP-Archiven. Ohne gewählten Ordner nutzt die App für Videos
-unter 500 MB den Temp-Ordner von Windows; Videos ab 500 MB kopiert sie erst, nachdem du einen Ordner gewählt und die
-Rückfrage bestätigt hast. Ist der gewählte Ordner nicht nutzbar, kopiert die App nicht an einen anderen Ort. Das
-ZIP-Archiv bleibt unverändert. Für Vorschaubilder wird nichts kopiert.</li>
-<li><strong>Prüfberichte</strong> und Berichte der Duplikat- und Quarantäne-Werkzeuge (mit Datei- und Ordnernamen) legt die App unter
-„Dokumente\Takeout Archiv Manager“ ab, Quarantäne-Ordner an den angezeigten Orten. Beides entsteht nur, wenn du diese
-Werkzeuge verwendest.</li>
-<li><strong>Schutz:</strong> Alle genannten Daten bleiben auf deinen Laufwerken. Die App verschlüsselt sie nicht zusätzlich; es gelten die
-Zugriffsrechte des jeweiligen Ordners. Je nach Laufwerk und Windows-Einstellung können auch andere Benutzerkonten
-dieses PCs den Indexordner lesen – wähle bei Bedarf einen Ordner, auf den nur du zugreifen kannst.</li>
+<li>den vollständigen Dateipfad, bei ZIP-Quellen den Archivpfad und Eintrag,</li>
+<li>Dateigröße und Änderungszeit,</li>
+<li>einen Merkmalsvektor aus 768 Zahlen.</li>
 </ul>
+<p>Der Merkmalsvektor beschreibt Eigenschaften des Bildinhalts und ist
+keine gespeicherte Bildkopie. Zusammen mit dem Dateipfad sollte er wie
+persönliche Daten behandelt werden.</p>
+<p>Der Index liegt in dem Ordner, den du beim ersten Einsatz auswählst.
+Den Speicherort findest du über „KI-Einstellungen …“. Suchbegriffe
+und Trefferlisten werden nicht gespeichert.</p>
+
+<h3>Einstellungen und Zwischenspeicher</h3>
+<p>Unter „AppData\Local\TakeoutArchivManager“ liegen:</p>
+<ul>
+<li>Einstellungen, beispielsweise Hinweistöne, Speicherort des
+KI-Index und Rechenweg der KI.</li>
+<li>Der Schalter zum Überspringen von System-, Programm- und
+Spieleordnern sowie eigene Ausschlussordner als vollständige Pfade.</li>
+<li>Der gewählte Speicherort für vorübergehende Videodateien in
+„video-temp.json“.</li>
+<li>Ein Fehlerprotokoll mit Fehlermeldungen, die Dateipfade enthalten
+können.</li>
+<li>Ein Prüfsummen-Zwischenspeicher der Duplikatsuche. Er enthält je
+Datei eine Inhaltsprüfsumme; Pfad, Größe und Änderungszeit dienen nur
+als daraus berechneter Schlüssel und stehen dort nicht im Klartext.</li>
+<li>Ein Einlese-Zwischenspeicher mit Aufnahmedatum beziehungsweise
+Zeitraum aus unterstützten JSON-Begleitdateien und Foto-/Video-Metadaten
+sowie Hersteller, Modell und vorhandener Kameraseriennummer im
+Klartext. Pfad, Größe und Änderungszeit dienen ebenfalls nur als
+berechneter Schlüssel.</li>
+</ul>
+<p>Existiert dieser Ordner bereits aus einer früheren Fassung,
+verwendet auch die Store-Fassung ihn weiter. Neu angelegte Dateien
+kann Windows stattdessen in den Datenordner des App-Pakets umleiten,
+auf dem Laufwerk, auf dem die App installiert ist.</p>
+<p>Die Auswahl des Duplikatassistenten wird innerhalb der laufenden
+Sitzung im Arbeitsspeicher behalten.</p>
+
+<h3>Videos aus ZIP-Archiven</h3>
+<p>Zum Abspielen kopiert die App das gewählte Video vorübergehend
+in einen Unterordner namens „TakeoutArchivManager-Vorschau“.</p>
+<p>Wenn du über „Speicherort für ZIP-Videos …“ einen Ordner gewählt
+hast, wird dieser für alle ZIP-Videos verwendet. Ohne gewählten Ordner
+nutzt die App bei Videos unter 500 MB den Windows-Temp-Ordner.
+Bei Videos ab 500 MB verlangt sie zuerst eine Ordnerwahl und
+Bestätigung.</p>
+<p>Ist der gewählte Ordner nicht nutzbar, weicht die App nicht still
+auf einen anderen Speicherort aus. Das ZIP-Archiv bleibt unverändert.
+Für Video-Vorschaubilder wird keine Datei aus dem ZIP kopiert.</p>
+
+<h3>Duplikate, Quarantäne und leere Ordner</h3>
+<p>Die Duplikatwerkzeuge vergleichen Dateien lokal. Ausgewählte Kopien
+können nach Bestätigung in den Windows-Papierkorb oder über die
+entsprechenden Werkzeuge in eine Quarantäne verschoben werden.</p>
+<p>Dateien in der Quarantäne können nach zwei ausdrücklichen
+Bestätigungen endgültig gelöscht werden. Dabei entsteht ein
+Löschbericht. Endgültig gelöschte Dateien lassen sich nicht über
+den Windows-Papierkorb zurückholen.</p>
+<p>Leer gewordene Ordner werden nur nach deiner Auswahl über den
+Papierkorb entfernt.</p>
+
+<h3>Berichte</h3>
+<p>Prüfberichte sowie Berichte der Duplikat- und Quarantänewerkzeuge
+einschließlich Löschberichten können Datei- und Ordnernamen enthalten.
+Sie werden unter „Dokumente\Takeout Archiv Manager“ gespeichert.
+Quarantäneordner liegen an den in der App angezeigten Orten.
+Diese Daten entstehen bei Verwendung der jeweiligen Werkzeuge.</p>
+
+<h3>Schutz der lokalen Daten</h3>
+<p>Die genannten Daten bleiben auf deinen Laufwerken. Die App
+verschlüsselt sie nicht zusätzlich. Es gelten die Zugriffsrechte
+des jeweiligen Ordners.</p>
+<p>Je nach Speicherort und Windows-Einstellung können andere
+Benutzerkonten deines PCs beispielsweise den Indexordner lesen.
+Wähle bei Bedarf einen Ordner, auf den nur du zugreifen kannst.</p>
 
 <h2>3. Weitergabe an Dritte</h2>
-<p>Die App überträgt deine Medien, Dateipfade, Suchbegriffe und Suchergebnisse nicht an den Anbieter oder einen
-Cloud-KI-Dienst. Für Laufzeitkomponenten, Windows und den Microsoft Store gelten die folgenden Besonderheiten.</p>
-<ul>
-<li>ONNX Runtime (KI-Laufzeit) enthält eine Telemetriefunktion über die Windows-Ereignisverfolgung. Das KI-Modul schaltet sie
-beim Start ab. Ergebnis einer Prüfung des Quelltexts von ONNX Runtime 1.24.4: Beim Initialisieren wird einmalig ein
-Startereignis (Laufzeitversion und ähnliche technische Angaben, keine Bilder, Pfade oder Suchbegriffe) an die
-Windows-Ereignisverfolgung übergeben, bevor das Abschalten wirkt; weitere Telemetrieereignisse werden danach laut Quelltext
-nicht mehr ausgelöst. Ein Mitschnitt der tatsächlich erzeugten Ereignisse wurde nicht durchgeführt. Ob und wie Windows solche
-Ereignisse weiterverarbeitet oder übermittelt, kann die App nicht beeinflussen; das wurde nicht geprüft.</li>
-<li>Der Grafiktreiber legt beim Verwenden der Grafikkarte eigene Zwischenspeicher (Shader-Cache) an.</li>
-<li>Installation, Updates und ggf. Absturzberichte über den Microsoft Store unterliegen den Datenschutzbestimmungen von
-Microsoft. Bei „Nach Updates suchen“ übermittelt Windows dem Store die Kennung und Version der App; Download,
-Prüfung und Installation eines Updates übernimmt Windows. Medien, Dateipfade oder Suchbegriffe überträgt die App
-dabei nicht.</li>
-</ul>
+<p>Die App überträgt deine Medien, Dateipfade, Suchbegriffe und
+Suchergebnisse nicht an den Anbieter oder einen Cloud-KI-Dienst.</p>
+<p>Für verwendete Laufzeitkomponenten, Windows und den Microsoft
+Store gelten folgende Besonderheiten:</p>
+
+<h3>ONNX Runtime</h3>
+<p>Die KI-Laufzeit ONNX Runtime enthält eine Telemetriefunktion über
+die Windows-Ereignisverfolgung. Das KI-Modul schaltet sie beim Start
+ab.</p>
+<p>Eine Quelltextprüfung von ONNX Runtime 1.24.4 ergab: Beim
+Initialisieren wird einmalig ein Startereignis mit Laufzeitversion
+und ähnlichen technischen Angaben an die Windows-Ereignisverfolgung
+übergeben, bevor das Abschalten wirkt. Es enthält keine Bilder,
+Dateipfade oder Suchbegriffe. Weitere Telemetrieereignisse werden
+danach laut Quelltext nicht mehr ausgelöst.</p>
+<p>Ein Mitschnitt der tatsächlich erzeugten Ereignisse wurde nicht
+durchgeführt. Ob und wie Windows solche Ereignisse weiterverarbeitet
+oder übermittelt, kann die App nicht beeinflussen; dies wurde nicht
+geprüft.</p>
+
+<h3>Grafiktreiber</h3>
+<p>Beim Verwenden der Grafikkarte kann der Grafiktreiber eigene
+Zwischenspeicher, sogenannte Shader-Caches, anlegen.</p>
+
+<h3>Microsoft Store und Windows</h3>
+<p>Installation, Updates und gegebenenfalls Absturzberichte über
+den Microsoft Store unterliegen den Datenschutzbestimmungen von
+Microsoft.</p>
+<p>Bei „Nach Updates suchen“ übermittelt Windows die Kennung und
+Version der App an den Store. Download, Prüfung und Installation
+übernimmt Windows. Medien, Dateipfade oder Suchbegriffe überträgt
+die App dabei nicht.</p>
 
 <h2>4. Speicherdauer und Löschen</h2>
-<p>Der KI-Index bleibt, bis du ihn löschst: Ordner über „KI-Einstellungen …“ anzeigen und die .kix-Dateien oder den Ordner
-löschen. Das Fehlerprotokoll ist auf etwa 4 MB begrenzt (ältere Einträge werden ersetzt), der Prüfsummen-Zwischenspeicher
-auf 200 000 Einträge, der Einlese-Zwischenspeicher auf 500 000 Einträge (jeweils werden die am längsten unbenutzten
-entfernt). Die Kameraangaben im Einlese-Zwischenspeicher bleiben so lange wie der jeweilige Eintrag. Eigene
-Ausschlussordner und der gewählte Ordner für Videodateien bleiben gespeichert, bis du sie in der App änderst oder
-aufhebst oder die Dateien „einlese-ausschluesse.json“ bzw. „video-temp.json“ löschst. Vorübergehende Videokopien löscht die App nach der
-Wiedergabe, spätestens beim nächsten Video und beim Beenden; nach einem Absturz können sie im genannten Unterordner
-liegen bleiben und werden bei einer späteren Wiedergabe entfernt, wenn sie älter als ein Tag sind. Die App löscht dort
-nur Dateien, die sie selbst angelegt hat. Berichte bleiben, bis du
-sie löschst. Beim Deinstallieren entfernt Windows das Programm und (Store-Fassung) seinen Paket-Datenordner mit den
-dorthin umgeleiteten Dateien. Bestehen bleiben: ein bereits vorhandener Ordner „AppData\Local\TakeoutArchivManager“ mit
-Einstellungen, Fehlerprotokoll, Prüfsummen und Einlese-Zwischenspeicher (kannst du bei Bedarf selbst löschen), der Ordner
-„Dokumente\Takeout Archiv Manager“, der von dir gewählte Indexordner und deine Medien. Sie werden beim Deinstallieren
-nicht verändert.</p>
+<p>Der KI-Index bleibt erhalten, bis du ihn löschst. Über
+„KI-Einstellungen …“ kannst du seinen Ordner anzeigen und die darin
+liegenden .kix-Dateien oder den Indexordner löschen.</p>
+<p>Das Fehlerprotokoll ist auf etwa 4 MB begrenzt. Ältere Einträge
+werden ersetzt. Der Prüfsummen-Zwischenspeicher ist auf 200.000
+Einträge begrenzt, der Einlese-Zwischenspeicher auf 500.000 Einträge.
+Bei Erreichen der Grenze werden die am längsten unbenutzten
+Einträge entfernt. Kameraangaben bleiben so lange gespeichert wie
+der jeweilige Eintrag.</p>
+<p>Eigene Ausschlussordner und der Speicherort für Videodateien
+bleiben gespeichert, bis du sie in der App änderst oder aufhebst
+oder die Dateien „einlese-ausschluesse.json“ beziehungsweise
+„video-temp.json“ löschst.</p>
+<p>Vorübergehende Videokopien entfernt die App nach der Wiedergabe,
+spätestens beim nächsten Video und beim Beenden. Nach einem Absturz
+können Dateien zurückbleiben. Bei einer späteren Wiedergabe werden
+solche Dateien entfernt, wenn sie älter als ein Tag sind.
+Die App entfernt dort nur Dateien, die sie selbst angelegt hat.</p>
+<p>Berichte und Quarantänedateien bleiben erhalten, bis du sie
+löschst beziehungsweise die vorgesehenen Bereinigungsfunktionen
+verwendest. Für Dateien im Windows-Papierkorb gelten dessen
+Einstellungen.</p>
+<p>Beim Deinstallieren entfernt Windows das Programm und bei der
+Store-Fassung dessen Paket-Datenordner einschließlich dorthin
+umgeleiteter Dateien.</p>
+<p>Bestehen bleiben können:</p>
+<ul>
+<li>ein bereits vorhandener Ordner
+„AppData\Local\TakeoutArchivManager“ mit Einstellungen,
+Fehlerprotokoll und Zwischenspeichern,</li>
+<li>Berichte unter „Dokumente\Takeout Archiv Manager“,</li>
+<li>der von dir gewählte KI-Indexordner,</li>
+<li>Quarantäneordner außerhalb des Paket-Datenordners,</li>
+<li>deine Medien und Archive.</li>
+</ul>
+<p>Diese Ordner werden durch die Deinstallation nicht automatisch
+bereinigt.</p>
 
 <h2>5. Deine Kontrolle</h2>
-<p>Die KI-Suche ist freiwillig. Ohne Klick auf „Suchen“ wird kein Foto für die KI eingelesen. Die übrige App funktioniert
-ohne KI-Suche vollständig. Alle oben genannten Dateien liegen in normalen Ordnern deines PCs; du kannst sie mit dem
-Explorer ansehen, kopieren oder löschen.</p>
+<p>Die KI-Bildsuche ist freiwillig. Ohne Start einer KI-Suche wird
+kein Foto für die KI eingelesen. Die übrigen Funktionen stehen
+auch ohne KI-Suche zur Verfügung.</p>
+<p>Die genannten lokalen Dateien kannst du mit dem Explorer
+ansehen, kopieren oder löschen. Änderungen und Löschungen können
+dazu führen, dass Einstellungen oder Suchindizes neu angelegt
+werden müssen.</p>
 
 <h2>6. Kontakt</h2>
-<p>Anbieter: MTKing. Kontakt per E-Mail: <a href="mailto:mtking-support@gmx.de">mtking-support@gmx.de</a></p>
-<p>Wenn du eine Support-E-Mail sendest, werden deine E-Mail-Adresse, der Nachrichteninhalt und gegebenenfalls Anhänge zur
-Bearbeitung deiner Anfrage verarbeitet. Die Nachrichten werden beim E-Mail-Dienst GMX gespeichert.</p>
+<p>Anbieter: MTKing<br>
+E-Mail:
+<a href="mailto:mtking-support@gmx.de">mtking-support@gmx.de</a></p>
+<p>Wenn du eine Support-E-Mail sendest, werden deine E-Mail-Adresse,
+der Nachrichteninhalt und gegebenenfalls Anhänge zur Bearbeitung
+deiner Anfrage verarbeitet. Die Nachrichten werden beim
+E-Mail-Dienst GMX gespeichert.</p>
 
 <h2>7. Änderungen</h2>
-<p>Diese Hinweise werden angepasst, wenn sich Funktionen ändern. Maßgeblich ist die Fassung zur jeweiligen App-Version.</p>
+<p>Diese Hinweise werden angepasst, wenn sich Funktionen oder
+Datenverarbeitungen ändern. Maßgeblich ist die Fassung zum
+jeweiligen Funktionsstand der App.</p>
 
 <footer class="web">
-<p><strong>Zu dieser Webseite:</strong> Diese Seite wird über GitHub Pages (GitHub, Inc.) bereitgestellt. Beim Aufruf
-speichert GitHub nach eigenen Angaben die IP-Adresse zu Sicherheitszwecken; Einzelheiten in der
-<a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a>.
-Die Seite selbst verwendet keine Cookies, keine Zählpixel, keine Analysewerkzeuge und keine nachgeladenen Schriften oder Skripte.</p>
+<p><strong>Zu dieser Webseite:</strong> Diese Seite wird über
+GitHub Pages von GitHub, Inc. bereitgestellt. Beim Aufruf speichert
+GitHub nach eigenen Angaben die IP-Adresse zu Sicherheitszwecken.
+Einzelheiten stehen in der
+<a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a>.</p>
+<p>Die Seite selbst verwendet keine Cookies, Zählpixel,
+Analysewerkzeuge, nachgeladenen Schriften oder Skripte.</p>
 </footer>
 </main>
 </body>
